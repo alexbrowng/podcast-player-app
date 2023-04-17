@@ -8,5 +8,12 @@ export function EpisodesPage() {
 
   const { data: episodes = [] } = useEpisodes({ podcastId: parseInt(podcastId) });
 
-  return <EpisodesTable episodes={episodes} />;
+  return (
+    <div className="flex flex-col space-y-5">
+      <div className="rounded border p-3 shadow">
+        <h3 className="font-sans text-lg font-bold">Episodes: {episodes.length}</h3>
+      </div>
+      <EpisodesTable episodes={episodes} />
+    </div>
+  );
 }
